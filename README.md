@@ -2,7 +2,6 @@
 
 Um aplicativo de gerenciamento de tarefas moderno e intuitivo com suporte a drag-and-drop e tema escuro.
 
-![TODO Diário Preview](preview.png)
 
 ## 🌟 Funcionalidades
 
