@@ -424,3 +424,148 @@ body {
         padding: 1.5rem;
     }
 } 
+
+/* Modal de Login */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.login-modal.active {
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-modal .modal-content {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    transform: translateY(-20px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-modal.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.login-modal .modal-header {
+    padding: 1.5rem;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-modal .modal-header h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 0;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.construction-message {
+    text-align: center;
+    padding: 2rem;
+}
+
+.construction-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1.5rem;
+    animation: bounce 2s infinite;
+    text-shadow: 0 4px 8px var(--shadow);
+}
+
+.construction-message p {
+    color: var(--text-color);
+    margin: 0.7rem 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.login-modal .modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--accent);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.login-modal .btn-primary {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.login-modal .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px var(--shadow);
+    filter: brightness(110%);
+}
+
+.login-modal .btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+.login-modal .close-modal {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.login-modal .close-modal:hover {
+    background-color: var(--bg-color);
+    color: var(--accent);
+    transform: rotate(90deg);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    60% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+} 
+
+/* Adicionar efeito de hover no modal */
+.login-modal .modal-content:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
