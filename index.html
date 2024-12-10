@@ -3,65 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO Diário</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <title>TODO Diário - Home</title>
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>TODO Diário</h1>
-            <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-        </div>
-        
-        <input type="text" class="todo-input" placeholder="Adicionar nova tarefa..." onkeypress="handleNewTodo(event)">
-        
-        <div class="columns-container">
-            <div class="column" data-status="todo">
-                <div class="column-header">A Fazer</div>
-                <ul class="todo-list" id="todoList" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'todo')">
-                </ul>
+    <div class="home-container">
+        <nav class="navbar">
+            <div class="logo">TODO Diário</div>
+            <div class="nav-buttons">
+                <a href="./todo.html" class="nav-link">Dashboard</a>
+                <button class="login-btn">Login</button>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
             </div>
-            <div class="column" data-status="making">
-                <div class="column-header">Em Andamento</div>
-                <ul class="todo-list" id="makingList" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'making')">
-                </ul>
+        </nav>
+
+        <main class="hero-section">
+            <div class="hero-content">
+                <h1>Gerencie suas tarefas com estilo</h1>
+                <p>Um organizador de tarefas moderno e intuitivo para aumentar sua produtividade</p>
+                <div class="cta-buttons">
+                    <a href="./todo.html" class="btn-primary">Começar agora</a>
+                    <a href="#features" class="btn-secondary">Saiba mais</a>
+                </div>
             </div>
-            <div class="column" data-status="completed">
-                <div class="column-header">Concluído</div>
-                <ul class="todo-list" id="completedList" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'completed')">
-                </ul>
+            <div class="hero-image">
+                <img src="./assets/to-do.svg" alt="Ilustração de tarefas">
             </div>
-        </div>
+        </main>
+
+        <section id="features" class="features-section">
+            <h2>Recursos Principais</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Organização em Colunas</h3>
+                    <p>Organize suas tarefas em A Fazer, Em Andamento e Concluído</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3>Drag & Drop</h3>
+                    <p>Arraste e solte tarefas entre as colunas facilmente</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌓</span>
+                    <h3>Tema Escuro</h3>
+                    <p>Alterne entre temas claro e escuro conforme sua preferência</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>Responsivo</h3>
+                    <p>Use em qualquer dispositivo com uma experiência otimizada</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <div class="news-container">
+                <h2>Novidades</h2>
+                <div class="news-cards">
+                    <div class="news-card">
+                        <div class="news-badge">Novo</div>
+                        <span class="news-icon">🎯</span>
+                        <h3>Kanban Board</h3>
+                        <p>Organize suas tarefas com nosso novo sistema de colunas drag-and-drop</p>
+                        <span class="news-date">Março 2024</span>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-badge">Atualização</div>
+                        <span class="news-icon">🎨</span>
+                        <h3>Tema Escuro</h3>
+                        <p>Agora você pode alternar entre temas claro e escuro para maior conforto visual</p>
+                        <span class="news-date">Março 2024</span>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-badge">Em Breve</div>
+                        <span class="news-icon">👥</span>
+                        <h3>Colaboração em Equipe</h3>
+                        <p>Compartilhe e gerencie tarefas com sua equipe em tempo real</p>
+                        <span class="news-date">Em desenvolvimento</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Desenvolvido com ❤️ por Tiago Bettega</p>
+            <div class="footer-links">
+                <a href="https://github.com/seu-usuario" target="_blank">GitHub</a>
+                <a href="#" onclick="toggleTheme()">Mudar Tema</a>
+            </div>
+        </footer>
     </div>
 
-    <!-- Modal de Edição -->
-    <div class="modal" id="editModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Editar Tarefa</h2>
-                <button class="close-modal" onclick="closeModal()">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="editTitle">Título da Tarefa</label>
-                    <input type="text" id="editTitle" class="modal-input">
-                </div>
-                <div class="form-group">
-                    <label for="editPerson">Responsável</label>
-                    <input type="text" id="editPerson" class="modal-input">
-                </div>
-                <div class="form-group">
-                    <label for="editDescription">Descrição</label>
-                    <textarea id="editDescription" class="modal-input" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
-                <button class="btn-save" onclick="saveEdit()">Salvar</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="./js/script.js"></script>
+    <script src="./js/home.js"></script>
 </body>
-</html>
+</html> 

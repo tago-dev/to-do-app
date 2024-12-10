@@ -31,10 +31,21 @@ body {
     padding: 2rem;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
 .container {
+    padding: 0 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    animation: fadeIn 0.5s ease-out;
+    margin-top: calc(72px + 1rem);
 }
 
 .header {
@@ -67,28 +78,27 @@ body {
 }
 
 .todo-input {
-    width: 100%;
-    padding: 1rem;
+    background-color: var(--card-bg);
     border: 2px solid var(--accent);
     border-radius: 8px;
-    background-color: var(--card-bg);
+    padding: 1rem;
+    width: 100%;
     color: var(--text-color);
     font-size: 1rem;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .todo-input:focus {
     outline: none;
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow);
+    transform: translateY(-2px);
 }
 
 .columns-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     animation: slideInUp 0.5s ease-out;
 }
 
@@ -395,4 +405,39 @@ body {
     font-size: 0.9rem;
     color: var(--text-color);
     opacity: 0.8;
+}
+
+/* Estilos específicos para o dashboard */
+.dashboard-header {
+    position: sticky;
+    top: 72px;
+    background-color: var(--bg-color);
+    padding: 1rem 0;
+    z-index: 900;
+    margin-bottom: 1rem;
+}
+
+.dashboard-header h1 {
+    margin-bottom: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        margin-top: calc(64px + 1rem);
+    }
+
+    .dashboard-header {
+        top: 64px;
+        padding: 0.8rem 0;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
 }
